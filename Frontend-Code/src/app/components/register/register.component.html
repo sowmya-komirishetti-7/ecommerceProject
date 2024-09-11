@@ -1,0 +1,129 @@
+<!-- <div class="container">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)=onSubmit()>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" />
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+    </form>
+</div> -->
+
+<!-- <div >
+    <mat-toolbar color="primary" class="navbar">
+      <span class="navbar-brand">E-Commerce</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/order" routerLinkActive="ctive">Track Order</button>
+      <button mat-button routerLink="/register" routerLinkActive="active">Register</button>
+      <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
+    </mat-toolbar>
+</div> -->
+<nav color="primary" class="navbar navbar-expand-lg navbar-dark color">
+    <div class="container-fluid">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" fdprocessedid="z9ulx">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <span class="navbar-brand">E-Commerce</span>
+                    <span class="spacer"></span>
+                   
+                </li>
+              
+            </ul>
+            <form class="d-flex">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" >Track Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="login">Login</a>
+                    </li>
+
+                </ul>
+  
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    
+        
+    <mat-card>
+        <mat-card-title>Sign Up</mat-card-title>
+
+        <mat-card-content>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Name" required>
+                <mat-error *ngIf="registerForm?.get('name')?.invalid && registerForm?.get('name')?.touched">
+                    Please enter a valid name.
+                </mat-error>
+              </mat-form-field> 
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="email" required>
+
+                <mat-error *ngIf="registerForm?.get('email')?.invalid && registerForm?.get('email')?.touched">
+                    Please enter a valid email.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" placeholder="Password" required>
+
+                <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+
+                <mat-error *ngIf="registerForm?.get('password')?.invalid && registerForm?.get('password')?.touched">
+                    Please enter a valid password.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="confirmPassword" placeholder="Password" required>
+
+                <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+
+                <mat-error *ngIf="registerForm?.get('confirmPassword')?.invalid && registerForm?.get('confirmPassword')?.touched">
+                    Please enter a valid confirm password.
+                </mat-error>
+            </mat-form-field>
+
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid"
+                >Sign Up</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,87 @@
+<!-- <div class="container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div> -->
+<nav color="primary" class="navbar navbar-expand-lg navbar-dark color">
+    <div class="container-fluid">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" fdprocessedid="z9ulx">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <span class="navbar-brand">E-Commerce</span>
+                    <span class="spacer"></span>
+                   
+                </li>
+              
+            </ul>
+            <form class="d-flex">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Track Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" routerLink="login">Login</a>
+                    </li>
+                    
+                </ul>
+  
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" placeholder="Email" required>
+                    <mat-error *ngIf="loginForm?.get('email')?.invalid && loginForm?.get('email')?.touched">
+                        please enter a valid email address.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" placeholder="Password" required>
+
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+
+                    <mat-error *ngIf="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched">
+                        please enter a valid password.
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid"
+                >Login</button>
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="accent" routerLink="/signup">Don't have an account? Sign Up</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
